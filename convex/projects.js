@@ -102,17 +102,15 @@ export const deleteProject = mutation({
 export const getProject = query({
   args: { projectId: v.id("projects") },
   handler: async (ctx, args) => {
-    const user = await ctx.runQuery(internal.users.getCurrentUser);
+    const user = await ctx.runQuery(internal.users.getCurrentUser);  //check user is logged in
 
-    const project = await ctx.db.get(args.projectId);
+    const project = await ctx.db.get(args.projectId); //get project by id
     if (!project) {
       throw new Error("Project not found");
     }
-
     if (!user || project.userId !== user._id) {
       throw new Error("Access denied");
     }
-
     return project;
   },
 });

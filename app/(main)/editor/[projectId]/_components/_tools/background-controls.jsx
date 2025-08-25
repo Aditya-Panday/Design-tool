@@ -113,6 +113,7 @@ export function BackgroundControls({ project }) {
   // Search Unsplash images
   const searchUnsplashImages = async () => {
     if (!searchQuery.trim() || !UNSPLASH_ACCESS_KEY) return;
+    console.log("Searching for images...", UNSPLASH_ACCESS_KEY);
 
     setIsSearching(true);
     try {
@@ -149,7 +150,7 @@ export function BackgroundControls({ project }) {
           headers: {
             Authorization: `Client-ID ${UNSPLASH_ACCESS_KEY}`,
           },
-        }).catch(() => {}); // Silent fail for download tracking
+        }).catch(() => { }); // Silent fail for download tracking
       }
 
       // Create fabric image from URL

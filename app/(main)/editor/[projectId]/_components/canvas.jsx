@@ -6,7 +6,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 function CanvasEditor({ project }) {
   const canvasRef = useRef();
-  const containerRef = useRef();
+  const containerRef = useRef();  // this is for canvas container to calculate dimensions and scale.
   const { canvasEditor, setCanvasEditor, activeTool, onToolChange } =
     useCanvas();
   const [isLoading, setIsLoading] = useState(true);
@@ -28,6 +28,7 @@ function CanvasEditor({ project }) {
   useEffect(() => {
     if (!canvasRef.current || !project || canvasEditor) return;
 
+    
     const initializeCanvas = async () => {
       setIsLoading(true);
 
