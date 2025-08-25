@@ -34,7 +34,6 @@ export default function Header() {
             height={24}
           />
         </Link>
-
         {path === "/" && (
           <div className="hidden md:flex space-x-6">
             <Link
