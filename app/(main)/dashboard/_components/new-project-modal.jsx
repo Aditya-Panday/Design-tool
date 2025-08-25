@@ -28,7 +28,7 @@ export function NewProjectModal({ isOpen, onClose }) {
   const [projectTitle, setProjectTitle] = useState("");
   const [isUploading, setIsUploading] = useState(false);
   const [showUpgradeModal, setShowUpgradeModal] = useState(false);
-
+  console.log("NewProjectModal is rendering", selectedFile);
   const { mutate: createProject } = useConvexMutation(api.projects.create);
   const { data: projects } = useConvexQuery(api.projects.getUserProjects);
   const { canCreateProject, isFree } = usePlanAccess();
@@ -170,11 +170,10 @@ export function NewProjectModal({ isOpen, onClose }) {
             {!selectedFile ? (
               <div
                 {...getRootProps()}
-                className={`border-2 border-dashed rounded-xl p-12 text-center cursor-pointer transition-all ${
-                  isDragActive
-                    ? "border-cyan-400 bg-cyan-400/5"
-                    : "border-white/20 hover:border-white/40"
-                } ${!canCreate ? "opacity-50 pointer-events-none" : ""}`}
+                className={`border-2 border-dashed rounded-xl p-12 text-center cursor-pointer transition-all ${isDragActive
+                  ? "border-cyan-400 bg-cyan-400/5"
+                  : "border-white/20 hover:border-white/40"
+                  } ${!canCreate ? "opacity-50 pointer-events-none" : ""}`}
               >
                 <input {...getInputProps()} />
                 <Upload className="h-12 w-12 text-white/50 mx-auto mb-4" />

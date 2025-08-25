@@ -3,10 +3,10 @@
 import React, { useState } from "react";
 import { Plus, Image, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useConvexQuery } from "@/hooks/use-convex-query";
 import { api } from "@/convex/_generated/api";
 import { NewProjectModal } from "./_components/new-project-modal";
 import { ProjectGrid } from "./_components/project-grid";
+import { useConvexQuery } from "@/hooks/use-convex-query";
 
 export default function DashboardPage() {
   const [showNewProjectModal, setShowNewProjectModal] = useState(false);
